@@ -2,10 +2,11 @@ import { Component, inject, Inject } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { IResponse } from '../../interfaces/iresponse.type-interfaces';
 import { IUsuario } from '../../interfaces/iusuario.type-interfaces';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

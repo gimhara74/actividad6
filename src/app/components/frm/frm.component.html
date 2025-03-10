@@ -1,1 +1,46 @@
-<p>frm works!</p>
+<section class="container">
+    <h2 class="mt-4 mb-4">NUEVO USUARIO</h2>
+    <hr>
+    <form [formGroup]="employeeForm" (ngSubmit)="getDataForm()">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre Usuario</label>
+        <input type="text" id="nombre" class="form-control" formControlName="nombre" placeholder="Introduce el nombre del usuario">
+        @if(checkControl('nombre', 'required')){
+        <p class="error">El campo es obligatorio</p>
+        }
+        @if(checkControl('nombre', 'minlength')){
+        <p class="error">El campo tiene que tener al menos 3 caracteres</p>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos Usuario</label>
+        <input type="text" id="apellidos" class="form-control" formControlName="apellidos" placeholder="Introduce los apellidos del usuario">
+        @if(checkControl('apellidos', 'required')){
+            <p class="error">El campo es obligatorio</p>
+        }
+        @if(checkControl('apellidos', 'minlength')){
+        <p class="error">El campo tiene que tener al menos 3 caracteres</p>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Usuario</label>
+        <input type="text" id="email" class="form-control" formControlName="email" placeholder="Introduce tu email">
+        @if(checkControl('email', 'required')){
+        <p class="error">Campo obligatorio</p>
+        }
+        @if(checkControl('email', 'pattern')){
+        <p class="error">El email tiene que ser correcto</p>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="photo" class="form-label">Imagen Usuario</label>
+        <input type="text" id="photo" class="form-control" formControlName="photo" placeholder="Introduce url de foto usuario">
+        @if(checkControl('photo', 'required')){
+        <p class="error">El campo tiene que tener al menos 3 caracteres</p>
+        }        
+      </div> 
+  
+      <input type="submit" value="Guardar" class="btn mt-2 btn-outline-dark" [disabled]="employeeForm.invalid">
+    </form>
+  </section>
+  

@@ -1,10 +1,30 @@
-<p>home works!</p>
+<div class="row justify-content-center">
+  @for(employee of arrEmployee; track employee.id){
 
-<div class="row g-4 justify-content-center">
-    @for(employee of arrEmployee; track employee.id){
-    <article class="col-12 col-md-6 col-lg-3">
-        <p>{{employee.first_name}}</p>
-     <!-- <app-personaje-card [miPersonaje]="personaje"></app-personaje-card> -->
-    </article>
-    }
+  <div class="card col-12 col-md-6 col-lg-3 m-3">
+    <div class="card-body text-center">
+      <img
+        [src]="employee.image"
+        class="card-img-top rounded-circle"
+        alt="..."
+      />
+      <p class="card-text fw-bold mt-2">
+        {{ employee.first_name }} {{ employee.last_name }}
+      </p>
+      <a [routerLink]="['/carduser']" class="btn">
+        <i class="bi bi-search fs-4"></i>
+        <p>Ver detalle</p></a
+      >
+      <a [routerLink]="['/frm']" class="btn">
+        <i class="bi bi-arrow-repeat fs-4"></i>
+        <p>Actualizar</p></a
+      >
+      <a href="#" class="btn">
+        <i class="bi bi-trash fs-4"></i>
+        <p>Borrar</p></a
+      >
+    </div>
   </div>
+
+  }
+</div>

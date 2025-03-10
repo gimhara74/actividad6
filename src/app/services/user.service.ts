@@ -7,7 +7,7 @@ import { IResponse } from '../interfaces/iresponse.type-interfaces';
   providedIn: 'root'
 })
 export class UserService {
-
+// En el app.config.ts se importa el HttpClient y se provee en el array de providers, para poder trabajar con APIS
   private httpClient = inject(HttpClient);
   private apiUrl: string = 'https://peticiones.online/api/users';
   
@@ -17,9 +17,7 @@ export class UserService {
   }
 
   getData(): Observable<IResponse> {
-    return this.httpClient.get<IResponse>(this.apiUrl);
-
-    
+    return this.httpClient.get<IResponse>(this.apiUrl);    
   }
 
 }
