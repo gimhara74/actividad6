@@ -1,30 +1,74 @@
-<div class="row justify-content-center">
-  @for(employee of arrEmployee; track employee.id){
 
-  <div class="card col-12 col-md-6 col-lg-3 m-3">
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+
+
+<div class="container-fluid mt-5">
+<div class="row justify-content-center">
+
+  @for(user of filteredUsers; track user._id){
+
+  <div class="col-12 col-md-6 col-lg-3 mb-5 ">
+    <div class="card">
     <div class="card-body text-center">
       <img
-        [src]="employee.image"
+        [src]="user.image"
         class="card-img-top rounded-circle"
         alt="..."
       />
       <p class="card-text fw-bold mt-2">
-        {{ employee.first_name }} {{ employee.last_name }}
+        {{ user.first_name }} {{ user.last_name }}
       </p>
-      <a [routerLink]="['/carduser']" class="btn">
+    
+      <a [routerLink]="[`/datauser/${user._id}`]" class="btn">
         <i class="bi bi-search fs-4"></i>
         <p>Ver detalle</p></a
       >
-      <a [routerLink]="['/frm']" class="btn">
+      <a [routerLink]="[`/frm/${user._id}`]" class="btn">
         <i class="bi bi-arrow-repeat fs-4"></i>
         <p>Actualizar</p></a
       >
-      <a href="#" class="btn">
-        <i class="bi bi-trash fs-4"></i>
-        <p>Borrar</p></a
-      >
+      <a class="btn" data-bs-toggle="modal" [attr.data-bs-target]="'#ppDel' + user._id">
+        <i class="bi bi-trash fs-4" ></i>
+        <p>Borrar</p></a>
+
+
     </div>
   </div>
+</div>
+
+<div class="modal fade" [attr.id]="'ppDel' + user._id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Usuario:</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Desea eliminar al usuario?</p>
+        <p>{{user.first_name}} {{user.last_name}}</p>        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="deleteUser(user._id)" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   }
+
+  <div class="d-flex justify-content-center mt-4">
+    <!--
+    <button class="btn btn-primary me-2" (click)="navigateToPrevPage()" [disabled]="!linkPrev">Anterior</button>
+    <button class="btn btn-primary" (click)="navigateToNextPage()" [disabled]="!linkNext">Siguiente</button>
+    -->
+
+    <button class="btn btn-primary btn-lg m-3" (click)="navigateToPrevPage()" >Anterior</button>
+    <button class="btn btn-primary btn-lg m-3" (click)="navigateToNextPage()" >Siguiente</button>
+  </div>
+
+</div>
 </div>
