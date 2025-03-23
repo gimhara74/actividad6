@@ -3,10 +3,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-head',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink],
   templateUrl: './head.component.html',
-  styleUrl: './head.component.css'
+  styleUrl: './head.component.css',
 })
-export class HeadComponent {
-
-}
+export class HeadComponent {}

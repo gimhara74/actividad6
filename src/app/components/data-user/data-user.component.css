@@ -1,6 +1,6 @@
 .vr {
-    border-left: 1px solid #000; /* Línea vertical de 1px de ancho y color negro */
-    height: 100%; /* Altura completa del contenedor */
+    border-left: 1px solid #000; 
+    height: 100%;
     margin-top: 2em;    
   }
 
